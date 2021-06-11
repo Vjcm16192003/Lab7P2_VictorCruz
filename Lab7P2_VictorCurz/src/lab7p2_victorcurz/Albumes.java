@@ -64,7 +64,18 @@ public class Albumes implements Serializable {
 
     public void setAliasp(String Aliasp) {
         this.Aliasp = Aliasp;
+          
     }
+
+    public ArrayList<Canciones> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(ArrayList<Canciones> canciones) {
+        this.canciones = canciones;
+    }
+    
+    
 //ToString
     @Override
     public String toString() {
