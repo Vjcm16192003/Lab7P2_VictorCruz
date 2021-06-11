@@ -27,6 +27,14 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         modelo.addElement("Instrumental");
         modelo.addElement("De Voz");
         CB_TipoMusica.setModel(modelo);
+        
+        DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) CB_Formato.getModel();
+        modelo1.addElement("Default");
+        modelo1.addElement("Instrumental");
+        modelo1.addElement("De Voz");
+        CB_TipoMusica.setModel(modelo1);
+        
+        
     }
 
     /**
@@ -59,6 +67,27 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         JD_CRUDCanciones = new javax.swing.JDialog();
         JD_CRUDAlbumes = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        CB_Formato = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        JB_AgregarAlbum = new javax.swing.JButton();
+        TF_NombreAlbum = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JL_ListarAlbumes = new javax.swing.JList<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        TF_FechaProduccion = new javax.swing.JTextField();
+        JB_ModificarAlbum = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        JB_EliminarAlbum = new javax.swing.JButton();
+        TF_GeneroMuscialAlbum = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        TF_AliasProductor = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        JB_AgregarAlbumesArtistas = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JL_ListarAlbumesArtistas = new javax.swing.JList<>();
         JD_Simulacion = new javax.swing.JDialog();
         jToolBar1 = new javax.swing.JToolBar();
         JB_SalirSistema = new javax.swing.JButton();
@@ -222,15 +251,159 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel9.setText("Formato");
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel10.setText("Nombre del Album:");
+
+        JB_AgregarAlbum.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        JB_AgregarAlbum.setText("Agregar Album");
+        JB_AgregarAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_AgregarAlbumMouseClicked(evt);
+            }
+        });
+
+        JL_ListarAlbumes.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(JL_ListarAlbumes);
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel11.setText("Fecha de Produccion");
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel12.setText("Listar Albumes");
+
+        JB_ModificarAlbum.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        JB_ModificarAlbum.setText("Modificar Album");
+        JB_ModificarAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_ModificarAlbumMouseClicked(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jLabel13.setText("Seleccione una Artista para Modficar");
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel14.setText("Genero de Musica del Album");
+
+        JB_EliminarAlbum.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        JB_EliminarAlbum.setText("Eliminar Album");
+        JB_EliminarAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_EliminarAlbumMouseClicked(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel15.setText("Alias del Productor");
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel16.setText("Albumes");
+
+        JB_AgregarAlbumesArtistas.setText("=====");
+
+        JL_ListarAlbumesArtistas.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(JL_ListarAlbumesArtistas);
+
         javax.swing.GroupLayout JD_CRUDAlbumesLayout = new javax.swing.GroupLayout(JD_CRUDAlbumes.getContentPane());
         JD_CRUDAlbumes.getContentPane().setLayout(JD_CRUDAlbumesLayout);
         JD_CRUDAlbumesLayout.setHorizontalGroup(
             JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                .addGap(465, 465, 465)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(26, 26, 26)
+                        .addComponent(TF_FechaProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(26, 26, 26)
+                        .addComponent(TF_NombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(26, 26, 26)
+                        .addComponent(TF_GeneroMuscialAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel9))
+                        .addGap(26, 26, 26)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TF_AliasProductor)
+                            .addComponent(CB_Formato, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(JB_AgregarAlbum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JB_AgregarAlbumesArtistas)
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addComponent(JB_ModificarAlbum)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JB_EliminarAlbum)))
+                .addGap(47, 47, 47))
         );
         JD_CRUDAlbumesLayout.setVerticalGroup(
             JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(JB_AgregarAlbumesArtistas))
+                            .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JB_ModificarAlbum)
+                            .addComponent(JB_EliminarAlbum)))
+                    .addGroup(JD_CRUDAlbumesLayout.createSequentialGroup()
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(TF_NombreAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(TF_FechaProduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(TF_GeneroMuscialAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(TF_AliasProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(JD_CRUDAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(CB_Formato, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(JB_AgregarAlbum)))
+                .addGap(88, 88, 88))
         );
 
         javax.swing.GroupLayout JD_SimulacionLayout = new javax.swing.GroupLayout(JD_Simulacion.getContentPane());
@@ -378,23 +551,57 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
 
     private void JB_ModificarArtistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarArtistaMouseClicked
         Admin_Artistas ar
-                    = new Admin_Artistas("./Astronauta.cbm");
+                    = new Admin_Artistas("./Artistas.vjcm");
         int p;
          p = JL_ListarArtista.getSelectedIndex();    
         
             ar.cargarArchivo();
-            ar.getListaArtistas().get(p).setContextura(JOptionPane.showInputDialog("Contextura: "));
-            ar.getListaArtistas().get(p).setPeso_kg(Integer.parseInt(JOptionPane.showInputDialog("Peso: ")));
-            ar.getListaArtistas().get(p).setCant_misiones(Integer.parseInt(JOptionPane.showInputDialog("Cantidad de missiones: ")));
-            ar.getListaArtistas().get(p).setNombre(JOptionPane.showInputDialog("Nombre: "));
-            ar.getListaArtistas().get(p).setApellido(JOptionPane.showInputDialog("Apellido: "));
+            ar.getListaArtistas().get(p).setAlias(JOptionPane.showInputDialog("Alias del Artista: "));
+            ar.getListaArtistas().get(p).setGeneroM(JOptionPane.showInputDialog("Genero Musical: "));
+            ar.getListaArtistas().get(p).setNom_disco(JOptionPane.showInputDialog("Nombre de la Discografica: "));
+            ar.getListaArtistas().get(p).setNombre(JOptionPane.showInputDialog("Nombre del Artista: "));
+            ar.getListaArtistas().get(p).setTipoM(JOptionPane.showInputDialog("Tipo de Musica: "));
             ar.escribirArchivo();
         
+            
+             DefaultListModel modeloLISTA = (DefaultListModel) JL_ListarArtista.getModel();
+            ((Artistas) modeloLISTA.get(JL_ListarArtista.getSelectedIndex())).setNombre(ar.getListaArtistas().get(p).getNombre());
+            ((Artistas) modeloLISTA.get(JL_ListarArtista.getSelectedIndex())).setAlias(ar.getListaArtistas().get(p).getAlias());
+            ((Artistas) modeloLISTA.get(JL_ListarArtista.getSelectedIndex())).setNom_disco(ar.getListaArtistas().get(p).getNom_disco());
+            ((Artistas) modeloLISTA.get(JL_ListarArtista.getSelectedIndex())).setGeneroM(ar.getListaArtistas().get(p).getGeneroM());
+            ((Artistas) modeloLISTA.get(JL_ListarArtista.getSelectedIndex())).setTipoM(ar.getListaArtistas().get(p).getTipoM());
+            
+            JL_ListarArtista.setModel(modeloLISTA);
     }//GEN-LAST:event_JB_ModificarArtistaMouseClicked
 
     private void JB_EliminarArtistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarArtistaMouseClicked
         // TODO add your handling code here:
+         Admin_Artistas ar=
+                    new Admin_Artistas("./Artistas.vjcm");
+            int p;
+            p= JL_ListarArtista.getSelectedIndex();
+            
+            ar.cargarArchivo();
+            ar.getListaArtistas().remove(p);
+            ar.escribirArchivo();
+            
+             DefaultListModel modeloLISTA = (DefaultListModel) JL_ListarArtista.getModel();
+             modeloLISTA.removeElementAt(p);
+             JL_ListarArtista.setModel(modeloLISTA);
+            
     }//GEN-LAST:event_JB_EliminarArtistaMouseClicked
+
+    private void JB_AgregarAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarAlbumMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_AgregarAlbumMouseClicked
+
+    private void JB_ModificarAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ModificarAlbumMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_ModificarAlbumMouseClicked
+
+    private void JB_EliminarAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarAlbumMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_EliminarAlbumMouseClicked
 
      public void Artistas(){
         JD_CRUDArstistas.pack();
@@ -464,25 +671,43 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CB_Formato;
     private javax.swing.JComboBox<String> CB_TipoMusica;
+    private javax.swing.JButton JB_AgregarAlbum;
+    private javax.swing.JButton JB_AgregarAlbumesArtistas;
     private javax.swing.JButton JB_AgregarArtista;
+    private javax.swing.JButton JB_EliminarAlbum;
     private javax.swing.JButton JB_EliminarArtista;
+    private javax.swing.JButton JB_ModificarAlbum;
     private javax.swing.JButton JB_ModificarArtista;
     private javax.swing.JButton JB_SalirSistema;
     private javax.swing.JDialog JD_CRUDAlbumes;
     private javax.swing.JDialog JD_CRUDArstistas;
     private javax.swing.JDialog JD_CRUDCanciones;
     private javax.swing.JDialog JD_Simulacion;
+    private javax.swing.JList<String> JL_ListarAlbumes;
+    private javax.swing.JList<String> JL_ListarAlbumesArtistas;
     private javax.swing.JList<String> JL_ListarArtista;
     private javax.swing.JMenuItem JMI_CRUDAlbumes;
     private javax.swing.JMenuItem JMI_CRUDArtista;
     private javax.swing.JMenuItem JMI_CRUDCanciones;
     private javax.swing.JMenuItem JMI_SimulacionRepdructor;
     private javax.swing.JTextField TF_AliasArtista;
+    private javax.swing.JTextField TF_AliasProductor;
+    private javax.swing.JTextField TF_FechaProduccion;
+    private javax.swing.JTextField TF_GeneroMuscialAlbum;
     private javax.swing.JTextField TF_GeneroMusical;
+    private javax.swing.JTextField TF_NombreAlbum;
     private javax.swing.JTextField TF_NombreArtista;
     private javax.swing.JTextField TF_NombreDisquera;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -490,12 +715,15 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
