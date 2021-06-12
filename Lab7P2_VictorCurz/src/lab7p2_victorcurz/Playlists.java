@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Playlists implements Serializable {
     private String Nombre_Play;
     private ArrayList<Canciones> canciones;
-    private static final long SerialVersionUID=777L;
+    private static final long SerialVersionUID=557L;
 
     public Playlists(String Nombre_Play, ArrayList<Canciones> canciones) {
         this.Nombre_Play = Nombre_Play;

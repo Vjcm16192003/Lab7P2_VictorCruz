@@ -124,9 +124,11 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         JB_EliminarAlbum1 = new javax.swing.JButton();
         JD_Simulacion = new javax.swing.JDialog();
         PB_Cancion = new javax.swing.JProgressBar();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel28 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        JL_PlayList = new javax.swing.JList<>();
+        CB_generos = new javax.swing.JComboBox<>();
+        JB_AgregarPlaylist = new javax.swing.JButton();
+        JB_Avanzar = new javax.swing.JButton();
         Exclusivo = new javax.swing.ButtonGroup();
         Adicional = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
@@ -706,11 +708,28 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
                 .addGap(88, 88, 88))
         );
 
-        jList2.setModel(new DefaultListModel()
-        );
-        jScrollPane7.setViewportView(jList2);
+        JL_PlayList.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(JL_PlayList);
 
-        jLabel28.setText("Lista Playlist");
+        CB_generos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_generosItemStateChanged(evt);
+            }
+        });
+
+        JB_AgregarPlaylist.setText("Agregar Playlist");
+        JB_AgregarPlaylist.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_AgregarPlaylistMouseClicked(evt);
+            }
+        });
+
+        JB_Avanzar.setText("Avanzar");
+        JB_Avanzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_AvanzarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JD_SimulacionLayout = new javax.swing.GroupLayout(JD_Simulacion.getContentPane());
         JD_Simulacion.getContentPane().setLayout(JD_SimulacionLayout);
@@ -719,23 +738,30 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
             .addGroup(JD_SimulacionLayout.createSequentialGroup()
                 .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JD_SimulacionLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_SimulacionLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(138, 138, 138)
                         .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JB_AgregarPlaylist)))
+                    .addGroup(JD_SimulacionLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JB_Avanzar)
+                            .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         JD_SimulacionLayout.setVerticalGroup(
             JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel28)
+                .addGap(27, 27, 27)
+                .addComponent(CB_generos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JB_AgregarPlaylist)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(JB_Avanzar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
         );
@@ -1135,6 +1161,157 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JB_EliminarCancionMouseEntered
 
+    private void CB_generosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_generosItemStateChanged
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo =(DefaultComboBoxModel) CB_generos.getModel();
+        if (evt.getStateChange() == 2) {
+            Admin_Playlists ap = new Admin_Playlists("./Playlist.cana");
+            ap.cargarArchivo();
+            Admin_Artistas aa = new Admin_Artistas("./Astista.cana");
+            aa.cargarArchivo();
+            Object aux= modelo.getSelectedItem();
+            String aux2="";
+            aux2+=aux;
+            ArrayList<Canciones>canc =new ArrayList();
+            boolean validacion=false;
+            int index=0;
+            for (int i = 0; i < ap.getListaPlaylists().size(); i++) {
+                if(ap.getListaPlaylists().get(i).getNombre_Play().equalsIgnoreCase(aux2)){
+                    validacion=true;
+                    index=i;
+                }
+            }
+            if(validacion){
+                for (int i = 0; i < ap.getListaPlaylists().get(i).getCanciones().size(); i++) {
+                    for (int j = 0; j < aa.getListaArtistas().size(); j++) {
+                        for (int v = 0; v < aa.getListaArtistas().get(i).getAlbumes().size(); v++) {
+                            if(aa.getListaArtistas().get(i).getAlbumes().get(v).getGeneroM().equalsIgnoreCase(aux2)){
+                                for (int k = 0; k < aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().size(); k++) {
+                                    if(aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().get(k).getNom().equalsIgnoreCase(ap.getListaPlaylists().get(index).getCanciones().get(i).getNom())){
+
+                                    }else{
+                                        canc.add(aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().get(k));
+                                    }//fin del for
+                                }//fin del for
+                            }//fin del else
+                        }//fin del for
+                    }//fin del else
+                }//fin dle else
+                ap.getListaPlaylists().get(index).getCanciones().addAll(canc);
+            }else{
+                for (int i = 0; i < aa.getListaArtistas().size(); i++) {
+                    for (int j = 0; j < aa.getListaArtistas().get(i).getAlbumes().size(); j++) {
+                        if(aa.getListaArtistas().get(i).getAlbumes().get(j).getGeneroM().equalsIgnoreCase(aux2)){
+                            for (int k = 0; k < aa.getListaArtistas().get(i).getAlbumes().get(j).getCanciones().size(); k++) {
+                                canc.add(aa.getListaArtistas().get(i).getAlbumes().get(j).getCanciones().get(k));
+                            }
+                        }
+                    }
+                }
+                ap.getListaPlaylists().add(new Playlists(aux2,canc));
+            }
+            ap.escribirArchivo();
+            ap.cargarArchivo();
+            DefaultListModel LISTMODEL = new  DefaultListModel();
+            for (int i = 0; i < ap.getListaPlaylists().size(); i++) {
+                if(ap.getListaPlaylists().get(i).getNombre_Play().equalsIgnoreCase(aux2)){
+                    index=i;
+                }
+            }
+
+            for (int i = 0; i < ap.getListaPlaylists().get(index).getCanciones().size(); i++) {
+                LISTMODEL.addElement(ap.getListaPlaylists().get(index).getCanciones().get(i));
+            }
+            JL_PlayList.setModel(LISTMODEL);
+        }
+
+    }//GEN-LAST:event_CB_generosItemStateChanged
+
+    private void JB_AgregarPlaylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarPlaylistMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel MODELO =(DefaultComboBoxModel) CB_generos.getModel();
+        Admin_Playlists aplay = new Admin_Playlists("./Playlist.vjcm");
+        aplay.cargarArchivo();
+        Admin_Artistas aa = new Admin_Artistas("./Artista.vjcm");
+        aa.cargarArchivo();
+        Object aux1= MODELO.getSelectedItem();
+        String auxiliar="";
+        auxiliar+=aux1;
+        ArrayList<Canciones> canc=new ArrayList();
+        boolean tt=false;
+        int index=0;
+        for (int i = 0; i < aplay.getListaPlaylists().size(); i++) {
+            if(aplay.getListaPlaylists().get(i).getNombre_Play().equalsIgnoreCase(auxiliar)){
+                tt=true;
+                index=i;
+            }
+        }
+        if(tt){
+            for (int i = 0; i < aplay.getListaPlaylists().get(i).getCanciones().size(); i++) {
+                for (int j = 0; j < aa.getListaArtistas().size(); j++) {
+                    for (int v = 0; v < aa.getListaArtistas().get(i).getAlbumes().size(); v++) {
+                        if(aa.getListaArtistas().get(i).getAlbumes().get(v).getGeneroM().equalsIgnoreCase(auxiliar)){
+                            for (int k = 0; k < aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().size(); k++) {
+                                if(aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().get(k).getNom().equalsIgnoreCase(aplay.getListaPlaylists().get(index).getCanciones().get(i).getNom())){
+                                }else{
+                                    canc.add(aa.getListaArtistas().get(i).getAlbumes().get(v).getCanciones().get(k));
+                                }//fin del else
+                            }//fin del for
+                        }//fin de else
+                    }//fin del for
+                }//fin del for
+            }//fin del for
+            aplay.getListaPlaylists().get(index).getCanciones().addAll(canc);
+        }else{
+            for (int i = 0; i < aa.getListaArtistas().size(); i++) {
+                for (int j = 0; j < aa.getListaArtistas().get(i).getAlbumes().size(); j++) {
+                    if(aa.getListaArtistas().get(i).getAlbumes().get(j).getGeneroM().equalsIgnoreCase(auxiliar)){
+                        for (int k = 0; k < aa.getListaArtistas().get(i).getAlbumes().get(j).getCanciones().size(); k++) {
+                            canc.add(aa.getListaArtistas().get(i).getAlbumes().get(j).getCanciones().get(k));
+                        }//fin del for
+                    }//fin del else
+                }//fin del for
+            }//fin del for
+            aplay.getListaPlaylists().add(new Playlists(auxiliar,canc));
+        }
+        aplay.escribirArchivo();
+        aplay.cargarArchivo();
+        DefaultListModel modelolista = new  DefaultListModel();
+        for (int i = 0; i < aplay.getListaPlaylists().size(); i++) {
+            if(aplay.getListaPlaylists().get(i).getNombre_Play().equalsIgnoreCase(auxiliar)){
+                index=i;
+            }//fin del for que reccore la lista
+        }//fin del for que recorre todo
+
+        for (int i = 0; i < aplay.getListaPlaylists().get(index).getCanciones().size(); i++) {
+            modelolista.addElement(aplay.getListaPlaylists().get(index).getCanciones().get(i));
+        }
+        JL_PlayList.setModel(modelolista);
+    }//GEN-LAST:event_JB_AgregarPlaylistMouseClicked
+
+    private void JB_AvanzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AvanzarMouseClicked
+    try{
+        int f=JL_PlayList.getSelectedIndex();
+        DefaultListModel modelo= (DefaultListModel) JL_PlayList.getModel();
+        Canciones d= (Canciones)modelo.get(f);
+         Canciones n= (Canciones)modelo.get(f);
+        
+        int dur = d.getDuracion();
+        String nom = n.getNom();
+        n.getNom();
+        HB = new HiloBarra(PB_Cancion, dur, nom);
+           
+
+            HB.start();
+            
+            } catch (Exception e) {
+
+        }
+        HB.setAvanzar(true);
+        
+        
+    }//GEN-LAST:event_JB_AvanzarMouseClicked
+
      public void Artistas(){
         JD_CRUDArstistas.pack();
         JD_CRUDArstistas.setModal(true);
@@ -1163,6 +1340,7 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     }
      
      
+    HiloBarra HB;
     
     
     
@@ -1206,12 +1384,15 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.ButtonGroup Adicional;
     private javax.swing.JComboBox<String> CB_Formato;
     private javax.swing.JComboBox<String> CB_TipoMusica;
+    private javax.swing.JComboBox<String> CB_generos;
     private javax.swing.ButtonGroup Exclusivo;
     private javax.swing.JButton JB_AgregarAlbum;
     private javax.swing.JButton JB_AgregarAlbumesArtistas;
     private javax.swing.JButton JB_AgregarArtista;
     private javax.swing.JButton JB_AgregarCancion;
     private javax.swing.JButton JB_AgregarCancionesAlbumes;
+    private javax.swing.JButton JB_AgregarPlaylist;
+    private javax.swing.JButton JB_Avanzar;
     private javax.swing.JButton JB_EliminarAlbum;
     private javax.swing.JButton JB_EliminarAlbum1;
     private javax.swing.JButton JB_EliminarArtista;
@@ -1232,6 +1413,7 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JList<String> JL_ListarArtista;
     private javax.swing.JList<String> JL_ListarCanciones;
     private javax.swing.JList<String> JL_ListarCancionesAlbumes;
+    private javax.swing.JList<String> JL_PlayList;
     private javax.swing.JMenuItem JMI_CRUDAlbumes;
     private javax.swing.JMenuItem JMI_CRUDArtista;
     private javax.swing.JMenuItem JMI_CRUDCanciones;
@@ -1273,7 +1455,6 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1281,7 +1462,6 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1292,7 +1472,7 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
