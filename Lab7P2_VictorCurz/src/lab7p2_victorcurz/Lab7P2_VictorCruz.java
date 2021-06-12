@@ -990,47 +990,51 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_EliminarAlbumMouseClicked
 
     private void JB_AgregarAlbumesArtistasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarAlbumesArtistasMouseClicked
-        DefaultListModel modelo = (DefaultListModel) JL_ListarAlbumes.getModel();
-        int lista1 = JL_ListarAlbumesArtistas.getSelectedIndex();
-        int lista2 = JL_ListarAlbumes.getSelectedIndex();
-        Admin_Artistas ar = new Admin_Artistas("./Artistas.vjcm");
-        ar.cargarArchivo();
-        Albumes alb = (Albumes) modelo.get(lista2);
-        ar.getListaArtistas().get(lista1).getAlbumes().add(alb);
-        ar.escribirArchivo();
-        DefaultListModel modelo1 = (DefaultListModel) JL_ListarAlbumesArtistas.getModel();
-        ((Artistas) modelo1.get(lista1)).getAlbumes().add(alb);
-        JL_ListarAlbumesArtistas.setModel(modelo1);
-        JL_ListarArtista.setModel(modelo1);
-        //System.out.println(ar.getListaArtistas().get(lista1).getAlbumes());
+       DefaultListModel modelo = (DefaultListModel) JL_ListarAlbumes.getModel();
+        int t1=JL_ListarAlbumesArtistas.getSelectedIndex();
+        int t2=JL_ListarAlbumes.getSelectedIndex();
+        Admin_Artistas ap = new Admin_Artistas("./Artistas.vjcm");
+        ap.cargarArchivo();
+            Albumes a=(Albumes)modelo.get(t2);
+                    
+            ap.getListaArtistas().get(t1).getAlbumes().add(a);
+            ap.escribirArchivo();
+            DefaultListModel modelo1 = (DefaultListModel) JL_ListarAlbumesArtistas.getModel();
+           ((Artistas) modelo1.get(t1)).getAlbumes().add(a);
+           JL_ListarAlbumesArtistas.setModel(modelo1);
+           JL_ListarArtista.setModel(modelo1);
+           String tt1="";
+           for (int i = 0; i < ap.getListaArtistas().get(t1).getAlbumes().size(); i++) {
+            tt1+=i+". "+ap.getListaArtistas().get(t1).getAlbumes().get(i)+"\n";
+        }
+        JOptionPane.showMessageDialog(this,"Los Albumenes de este Artista son: \n"+tt1);
     }//GEN-LAST:event_JB_AgregarAlbumesArtistasMouseClicked
 
     private void JB_AgregarCancionesAlbumesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarCancionesAlbumesMouseClicked
         DefaultListModel modelo = (DefaultListModel) JL_ListarCanciones.getModel();
-        int tabla1= JL_ListarCancionesAlbumes.getSelectedIndex();
-        int tabla2= JL_ListarCanciones.getSelectedIndex();
-        Admin_Artistas ar = new Admin_Artistas("./Artista.vjcm");
-        ar.cargarArchivo();
-        String auxiliar="";
-        for (int i = 0; i < ar.getListaArtistas().get(tabla1).getAlbumes().size(); i++) {
-            auxiliar+=i+". "+ar.getListaArtistas().get(tabla1).getAlbumes().get(i)+"\n";
+        int t1=JL_ListarCancionesAlbumes.getSelectedIndex();
+        int t2=JL_ListarCanciones.getSelectedIndex();
+        Admin_Artistas ap = new Admin_Artistas("./Artistas.vjcm");
+        ap.cargarArchivo();
+        String t="";
+        for (int i = 0; i < ap.getListaArtistas().get(t1).getAlbumes().size(); i++) {
+            t+=i+". "+ap.getListaArtistas().get(t1).getAlbumes().get(i)+"\n";
         }
-        int pos= Integer.parseInt(JOptionPane.showInputDialog(JD_CRUDCanciones,"Los Albumenes Disponibles de este Artista son: \n"+auxiliar));
-            Canciones cancion=(Canciones)modelo.get(tabla2);
-            ar.getListaArtistas().get(tabla1).getAlbumes().get(pos).getCanciones().add(cancion);
-            ar.escribirArchivo();
+        int n=Integer.parseInt(JOptionPane.showInputDialog(JD_CRUDCanciones,"Los Albumenes de este Artista son: \n"+t));
+            Canciones e=(Canciones)modelo.get(t2);
+                    
+            ap.getListaArtistas().get(t1).getAlbumes().get(n).getCanciones().add(e);
+            ap.escribirArchivo();
             DefaultListModel modelo1 = (DefaultListModel) JL_ListarCancionesAlbumes.getModel();
-           ((Artistas) modelo1.get(tabla1)).getAlbumes().get(pos).getCanciones().add(cancion);
+           ((Artistas) modelo1.get(t1)).getAlbumes().get(n).getCanciones().add(e);
            JL_ListarCancionesAlbumes.setModel(modelo1);
            JL_ListarAlbumesArtistas.setModel(modelo1);
            JL_ListarArtista.setModel(modelo1);
-           String aux2="";
-        for (int i = 0; i < ar.getListaArtistas().get(tabla1).getAlbumes().get(pos).getCanciones().size(); i++) {
-            aux2 += i+". "+ar.getListaArtistas().get(tabla1).getAlbumes().get(pos).getCanciones().get(i)+"\n";
+           String tt1="";
+        for (int i = 0; i < ap.getListaArtistas().get(t1).getAlbumes().get(n).getCanciones().size(); i++) {
+            tt1+=i+". "+ap.getListaArtistas().get(t1).getAlbumes().get(n).getCanciones().get(i)+"\n";
         }
-        JOptionPane.showMessageDialog(JD_CRUDCanciones,
-                "Los Canciones en el Album son: "+ar.getListaArtistas().get(tabla1).getAlbumes().get(pos)
-                        +"de este Artista son: \n"+aux2);
+        JOptionPane.showMessageDialog(JD_CRUDCanciones,"Los Caciones en el Album: "+ap.getListaArtistas().get(t1).getAlbumes().get(n)+"de este Artista son: \n"+tt1);
     }//GEN-LAST:event_JB_AgregarCancionesAlbumesMouseClicked
 
     private void JB_EliminarCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_EliminarCancionMouseClicked

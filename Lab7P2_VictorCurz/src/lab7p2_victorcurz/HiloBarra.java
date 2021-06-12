@@ -56,33 +56,26 @@ public class HiloBarra extends Thread{
     public void setVive(boolean vive) {
         this.vive = vive;
     }
-    
-    public void run()
+ 
+     public void run()
     {
         barra.setValue(0);
-       while(true)
-       {
-           if(avanzar)
-           {
-               barra.setValue(barra.getValue()+1);
+       while (vive) {
+            if (avanzar) {
+                barra.setValue(barra.getValue()+1);
                barra.setString(Integer.toString(barra.getValue()) + nombre);
                if(barra.getValue()==duracion)
                {
                    avanzar=false;
                }
-               
-           }
-           try
-           {
-               Thread.sleep(1000);
-           }
-           catch(InterruptedException ex)
-           {
-               
-           }
-           
-       }
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
+        }
     }
-    
-    
 }
+    
+    
+
