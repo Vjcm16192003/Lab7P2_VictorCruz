@@ -124,11 +124,8 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         JB_EliminarAlbum1 = new javax.swing.JButton();
         JD_Simulacion = new javax.swing.JDialog();
         PB_Cancion = new javax.swing.JProgressBar();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
-        jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         Exclusivo = new javax.swing.ButtonGroup();
         Adicional = new javax.swing.ButtonGroup();
@@ -709,15 +706,9 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
                 .addGap(88, 88, 88))
         );
 
-        jList1.setModel(new DefaultListModel()
-        );
-        jScrollPane6.setViewportView(jList1);
-
         jList2.setModel(new DefaultListModel()
         );
         jScrollPane7.setViewportView(jList2);
-
-        jLabel27.setText("Lista Albumes");
 
         jLabel28.setText("Lista Playlist");
 
@@ -731,11 +722,7 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JD_SimulacionLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                        .addGap(56, 56, 56)
                         .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel28)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -744,15 +731,11 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
         JD_SimulacionLayout.setVerticalGroup(
             JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JD_SimulacionLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel28))
+                .addGap(74, 74, 74)
+                .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JD_SimulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(PB_Cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
         );
@@ -1290,7 +1273,6 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1299,7 +1281,6 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1311,7 +1292,6 @@ public class Lab7P2_VictorCruz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables

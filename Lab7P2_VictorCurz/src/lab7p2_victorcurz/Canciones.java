@@ -17,7 +17,7 @@ public class Canciones implements Serializable{
     private int duracion;
     private String nom_compos,nom_distri,exclusivo,nom_produc;
     private ArrayList<String>adi;
-    private static final long SerialVersionUID=777L;
+    private static final long SerialVersionUID=734L;
 
     public Canciones(String nom, int duracion, String nom_compos, String nom_distri, String exclusivo, String nom_produc, ArrayList<String> adi) {
         this.nom = nom;
